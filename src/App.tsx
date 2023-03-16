@@ -21,8 +21,6 @@ const colours = [
 export default function App() {
     const [colour, setColour] = useState<typeof colours[number]>(colours[Math.floor(Math.random()*colours.length)])
 
-    useEffect(() => console.log(colour),  [colour])
-
     return (
         <div className={`${colour} duration-400 flex flex-col font-mono max-w-screen min-h-screen p-1 transition-colors`}>
             <Navbar />
