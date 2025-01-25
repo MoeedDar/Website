@@ -1,16 +1,94 @@
 ---
+import '../styles/global.css';
 
+export const content = {
+  title: 'Moeed',
+  subheading: 'Maximising human potential',
+  name: 'Moeed Dar',
+  description: 'Engineer • Founder • Thinker',
+  intro: `Humanity is in constant flux with data. Our thoughts, our friends, our day to day lives. My goal is to build thinking machines that organise the mess of data we live in, to derive actions and insights. AI optimises. Facebook, Tiktok, Google collect your data and build AI systems to optimise your behaviour for retention. My aim is to optimise for humanities happiness and productivity.`,
+  sections: [
+    {
+      heading: "Things I'm currently engineering:",
+      items: [
+        'AI agents',
+        'Sync engines',
+        'Compilers',
+        'Databases',
+        'Web apps',
+      ],
+    },
+    {
+      heading: "What I'm currently founding:",
+      text: `Right now I'm building Quanta, a task automation platform and knowledge base. We use your contextual data stored in a knowledge base to power AI agents that work and think ahead for you.`,
+    },
+    {
+      heading: "Other stuff I'm interested in:",
+      items: [
+        'MMA/Muay Thai',
+        'Playing the piano',
+        'Meditation',
+        'Exercise',
+        'Physics',
+        'Mathematics',
+      ],
+    },
+    {
+      heading: 'Programming stuff I like to use:',
+      items: [
+        'C/C++',
+        'Zig',
+        'Rust',
+        'Go',
+        'Python',
+        'Typescript/Javascript',
+        'PostgreSQL',
+        'Svelte',
+        'Haskell',
+      ],
+    },
+  ],
+};
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Moeed</title>
+  </head>
+  <body class="bg-background text-foreground">
+    <main class="p-8 pb-64 max-w-7xl mx-auto">
+      <h1 class="text-6xl mb-12">{content.subheading}</h1>
+      <h3 class="mb-4 text-4xl">{content.name}</h3>
+      <p class="text-xl mb-12">{content.description}</p>
+
+      <p class="mb-12">{content.intro}</p>
+
+      {
+        content.sections.map((section) => (
+          <section class="mb-12">
+            <h3 class="pb-8 font-bold">{section.heading}</h3>
+            {section.items ? (
+              <ul>
+                {section.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>{section.text}</p>
+            )}
+          </section>
+        ))
+      }
+    </main>
+  </body>
 </html>
